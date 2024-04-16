@@ -1,0 +1,15 @@
+Kuka seuraavista on Python-ohjelmointikielen alkuperäinen kehittäjä?
+Niklaus Wirth
+Guido van Rossum
+Grace Hopper
+B
+Mikä seuraavista ei ole Niklaus Wirthin suunnittelema ohjelmointikieli?
+Ada
+Pascal
+Modula-2
+A
+Mikä oli Intelin ensimmäinen 32-bittinen mikroprosessori?
+Pentium
+Itanium
+80386
+C
