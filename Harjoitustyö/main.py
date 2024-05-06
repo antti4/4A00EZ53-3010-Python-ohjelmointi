@@ -1,0 +1,3 @@
+import Komentotulkki
+
+Komentotulkki.tulkki()
