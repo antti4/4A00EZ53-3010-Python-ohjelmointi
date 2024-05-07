@@ -1,20 +1,19 @@
 {
 "sijainnit": [
-    {"nro":1, "nimi" : "", "kuvaus":"","esineet":[]},
-    {"nro":2, "nimi" : "", "kuvaus":"","esineet":[]},
-    {"nro":3, "nimi" : "", "kuvaus":"","esineet":[]},
-    {"nro":4, "nimi" : "", "kuvaus":"","esineet":[]},
-    {"nro":5, "nimi" : "", "kuvaus":"","esineet":[]},
-    {"nro":6, "nimi" : "", "kuvaus":"","esineet":[]},
-    {"nro":7, "nimi" : "", "kuvaus":"","esineet":[]},
-    {"nro":8, "nimi" : "", "kuvaus":"","esineet":[]},
-    {"nro":9, "nimi" : "", "kuvaus":"","esineet":[]},
-    {"nro":10, "nimi" : "", "kuvaus":"","esineet":[]},
-    {"nro":11, "nimi" : "", "kuvaus":"","esineet":[]},
-    {"nro":12, "nimi" : "", "kuvaus":"","esineet":[]},
-    {"nro":13, "nimi" : "", "kuvaus":"","esineet":[]},
-    {"nro":14, "nimi" : "", "kuvaus":"","esineet":[]},
-    {"nro":15, "nimi" : "", "kuvaus":"","esineet":[]}
-],
-"sijainti": 4
+    {"nro":1, "nimi" : "olet tyrmän sellissä, sellin ovi on rikkoutunut maanjäristyksen voimasta", "kuvaus":"Selli on vanha ja tunkkainen ilman ikkunoita tai omaa valon lähdettä. Sinä heräsit täältä ilman muistikuvaa itsestäsi","esineet":["luu"], "suunnat":{"pohjoiseen": 2, "itään": 3}},
+    {"nro":2, "nimi" : "", "kuvaus":"","esineet":[], "suunnat":{}},
+    {"nro":3, "nimi" : "", "kuvaus":"","esineet":[], "suunnat":{}},
+    {"nro":4, "nimi" : "", "kuvaus":"","esineet":[], "suunnat":{}},
+    {"nro":5, "nimi" : "", "kuvaus":"","esineet":[], "suunnat":{}},
+    {"nro":6, "nimi" : "", "kuvaus":"","esineet":[], "suunnat":{}},
+    {"nro":7, "nimi" : "", "kuvaus":"","esineet":[], "suunnat":{}},
+    {"nro":8, "nimi" : "", "kuvaus":"","esineet":[], "suunnat":{}},
+    {"nro":9, "nimi" : "", "kuvaus":"","esineet":[], "suunnat":{}},
+    {"nro":10, "nimi" : "", "kuvaus":"","esineet":[], "suunnat":{}},
+    {"nro":11, "nimi" : "", "kuvaus":"","esineet":[], "suunnat":{}},
+    {"nro":12, "nimi" : "", "kuvaus":"","esineet":[], "suunnat":{}},
+    {"nro":13, "nimi" : "", "kuvaus":"","esineet":[], "suunnat":{}},
+    {"nro":14, "nimi" : "", "kuvaus":"","esineet":[], "suunnat":{}},
+    {"nro":15, "nimi" : "", "kuvaus":"","esineet":[], "suunnat":{}}
+]
 }

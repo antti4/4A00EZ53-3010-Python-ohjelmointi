@@ -1,22 +1,34 @@
-import json
+loreColor = '\033[91m'
+resetColor = '\033[0m'
 
-def move(direction):
-    field = readFile("kenttä.json")
-    if direction == "pohjoinen":
-        print(field["sijainti"])
-    elif direction == "itä":
-        print(field["sijainti"])
-    elif direction == "etelä":
-        print(field["sijainti"])
-    elif direction == "länsi":
-        print(field["sijainti"])
+def move(direction, gameItems):
+    player = gameItems[0]
+    field = gameItems[1]
+    possibleRoutes = []
+    for location in field["sijainnit"]:
+        if location["nro"] == player["sijainti"]:
+            possibleRoutes = location["suunnat"]
+    
+    if direction in possibleRoutes:
+        player["sijainti"] = possibleRoutes[f"{direction}"]
+        print(f"{loreColor}kävelet {direction}{resetColor}")
+        return player
     else:
-        print(field["sijainti"])
+        print(f"{direction} ei voi mennä, edessäsi on seinä")
+        return player
 
+def surrounds(gameItems):
+    field = gameItems[1]
+    player = gameItems[0]
+    for location in field["sijainnit"]:
+        if location["nro"] == player["sijainti"]:
+            print(location["nimi"])
 
-def readFile(fileName):
-    f = open(fileName, 'r',encoding='utf-8')
-    data = f.read()
-    field = json.loads(data)
-    f.close()
-    return field
+def search(gameItems):
+    field = gameItems[1]
+    player = gameItems[0]
+    for location in field["sijainnit"]:
+        if location["nro"] == player["sijainti"]:
+            print(location["kuvaus"]+ " \nmaassa:")
+            for item in location["esineet"]:
+                print(item)

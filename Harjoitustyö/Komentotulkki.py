@@ -1,36 +1,54 @@
 import Liikkuminen
-
-def endActions():
+import Esineet
+loreColor = '\033[91m'
+resetColor = '\033[0m'
+def endActions(gameItems):
     print("empty1")
     return False
 
-def kuvaile():
-    print("empty2")
+def look(gameItems):
+    Liikkuminen.surrounds(gameItems)
     return True
 
-def inventory():
-    print("empty3")
+def search(gamItems):
+    Liikkuminen.search(gamItems)
     return True
 
-def help():
-    print("komennot: lopeta, katso, mukana,  mene (suunta), ota (esine), pudota (esine)")
+def inventory(gameItems):
+    Esineet.inventory(gameItems)
     return True
 
-def movement(direction):
-    Liikkuminen.move(direction)
+def help(gameItems):
+    print(loreColor+"komennot: lopeta, katso, mukana,  mene (suunta), ota (esine), pudota (esine)"+resetColor)
+    return True
 
-def grabItem(item):
-    print(f'{item} otettu')
+def movement(direction, gameItems):
+    gameItems = [Liikkuminen.move(direction, gameItems), gameItems[1]]
+    look(gameItems)
+    return gameItems
 
-def dropItem(item):
-    print(f'{item} pudotettu')
+def grabItem(item, gameItems):
+    gameItems = Esineet.pickUp(item, gameItems)
+    print(f'{loreColor}{item} otettu{resetColor}')
+    return gameItems
 
-def tulkki():
+def dropItem(item, gameItems):
+    gameItems = Esineet.drop(item, gameItems)
+    print(f'{loreColor}{item} pudotettu{resetColor}')
+    return gameItems
+
+
+
+
+
+def tulkki(gameItems):
     dontStop = True
-    print("Hei, tämä on seikkailupeli. \nKirjoita, mitä haluaisit tehdä(lopeta, katso, mukana, verbi objekti): ")
+    print(loreColor+"Hei, tämä on seikkailupeli. \nKirjoita, mitä haluaisit tehdä(lopeta, katso, mukana, verbi objekti): "+resetColor)
+    look(gameItems)
     ykk = {#yhden kirjaimen komennot
         "lopeta": endActions,
-        "katso": kuvaile,
+        "katso": look,
+        "etsi": search,
         "mukana": inventory,
         "apu": help
         }
@@ -41,20 +59,20 @@ def tulkki():
         "pudota":dropItem
         } 
     while dontStop:
-        row = input("Hei mitä haluaisit tehdä(verbi objekti): ").lower()
+        row = input("   Mitä aiot tehdä > ").lower()
         row = row.split()
         number = len(row)
         if number == 1:
             if row[0] in ykk:
-                dontStop = ykk[row[0]]()
+                dontStop = ykk[row[0]](gameItems)
             else:
-                print(f'"{row[0]}" mitä? En ymmärtänyt.')
+                print(f'{loreColor}"{row[0]}" mitä? En ymmärtänyt.{resetColor}')
         elif number == 2:
             if row[0] in kakk:
-                kakk[row[0]](row[1])
+                gameItems = kakk[row[0]](row[1], gameItems)
             else:
-                print("anteeksi sana ei kuulu kirjastooni")
+                print(loreColor+"anteeksi sana ei kuulu kirjastooni"+resetColor)
         else:
-            print("virhe")
+            print("liikaa sanoja")
 
 
