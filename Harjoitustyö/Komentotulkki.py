@@ -37,8 +37,11 @@ def dropItem(item, gameItems):
     print(f'{loreColor}{item} pudotettu{resetColor}')
     return gameItems
 
+def open(item, gameItems):
+    print()
 
-
+def use(item, gamItems):
+    print()
 
 
 def tulkki(gameItems):
@@ -54,9 +57,11 @@ def tulkki(gameItems):
         }
 
     kakk = {#kahden kirjaimen komennot
-        "mene":movement,
-        "ota":grabItem,
-        "pudota":dropItem
+        "mene": movement,
+        "ota": grabItem,
+        "avaa": open,
+        "käytä": use,
+        "pudota": dropItem
         } 
     while dontStop:
         row = input("   Mitä aiot tehdä > ").lower()
