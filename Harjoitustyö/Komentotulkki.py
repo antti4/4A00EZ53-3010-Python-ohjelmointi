@@ -1,9 +1,10 @@
 import Liikkuminen
 import Esineet
+
 loreColor = '\033[91m'
 resetColor = '\033[0m'
 def endActions(gameItems):
-    print("empty1")
+    print("kiitos pelaamisesta!")
     return False
 
 def look(gameItems):
@@ -28,20 +29,27 @@ def movement(direction, gameItems):
     return gameItems
 
 def grabItem(item, gameItems):
+    print(f'{loreColor}otetaan {item}{resetColor}')
     gameItems = Esineet.pickUp(item, gameItems)
-    print(f'{loreColor}{item} otettu{resetColor}')
     return gameItems
 
 def dropItem(item, gameItems):
+    print(f'{loreColor}pudotetaan {item}{resetColor}')
     gameItems = Esineet.drop(item, gameItems)
-    print(f'{loreColor}{item} pudotettu{resetColor}')
     return gameItems
 
-def open(item, gameItems):
-    print()
 
-def use(item, gamItems):
-    print()
+def use(item, gameItems):
+    print(f'{loreColor}kätettävä esine:{item} {resetColor}')
+    return Esineet.use(item, gameItems)
+
+def hit(item, gameItems):
+    print(f'{loreColor}lyömäsi ase: {item}{resetColor}')
+    return Esineet.hit(item, gameItems)
+
+def combine(item, item2, gameItems):
+    print(f'{loreColor} yhdistämät esineet: {item} ja {item2}{resetColor}')
+    return Esineet.combine(item, item2, gameItems)
 
 
 def tulkki(gameItems):
@@ -53,16 +61,19 @@ def tulkki(gameItems):
         "katso": look,
         "etsi": search,
         "mukana": inventory,
-        "apu": help
+        "apu": help,
         }
 
     kakk = {#kahden kirjaimen komennot
         "mene": movement,
         "ota": grabItem,
-        "avaa": open,
         "käytä": use,
+        "lyö": hit,
         "pudota": dropItem
         } 
+    kokk = {
+        "yhdistä": combine
+    }
     while dontStop:
         row = input("   Mitä aiot tehdä > ").lower()
         row = row.split()
@@ -75,6 +86,11 @@ def tulkki(gameItems):
         elif number == 2:
             if row[0] in kakk:
                 gameItems = kakk[row[0]](row[1], gameItems)
+            else:
+                print(loreColor+"anteeksi sana ei kuulu kirjastooni"+resetColor)
+        elif number == 3:
+            if row[0] in kokk:
+                gameItems = kokk[row[0]](row[1], row[2], gameItems)
             else:
                 print(loreColor+"anteeksi sana ei kuulu kirjastooni"+resetColor)
         else:

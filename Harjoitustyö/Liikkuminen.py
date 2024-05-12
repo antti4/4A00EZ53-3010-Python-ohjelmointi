@@ -14,7 +14,7 @@ def move(direction, gameItems):
         print(f"{loreColor}kävelet {direction}{resetColor}")
         return player
     else:
-        print(f"{direction} ei voi mennä, edessäsi on seinä")
+        print(f"{direction} ei pysty mennä")
         return player
 
 def surrounds(gameItems):
