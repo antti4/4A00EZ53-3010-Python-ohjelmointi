@@ -4,7 +4,7 @@ import Esineet
 loreColor = '\033[91m'
 resetColor = '\033[0m'
 def endActions(gameItems):
-    print("kiitos pelaamisesta!")
+    print("Kiitos pelaamisesta!")
     return False
 
 def look(gameItems):
@@ -20,7 +20,7 @@ def inventory(gameItems):
     return True
 
 def help(gameItems):
-    print(loreColor+"komennot: lopeta, katso, mukana,  mene (suunta), ota (esine), pudota (esine)"+resetColor)
+    print(loreColor+"komennot: lopeta, katso, mukana, etsi,  mene (suunta), ota (esine), pudota (esine), käytä (esine), lyö (esine), yhdistä (esine1) (esine2)"+resetColor)
     return True
 
 def movement(direction, gameItems):
@@ -63,7 +63,6 @@ def tulkki(gameItems):
         "mukana": inventory,
         "apu": help,
         }
-
     kakk = {#kahden kirjaimen komennot
         "mene": movement,
         "ota": grabItem,
@@ -95,5 +94,7 @@ def tulkki(gameItems):
                 print(loreColor+"anteeksi sana ei kuulu kirjastooni"+resetColor)
         else:
             print("liikaa sanoja")
+        if gameItems[0]["sijainti"] == 15:
+            dontStop = endActions(gameItems)
 
 
